@@ -18,38 +18,29 @@ const questions = [
         default: false
         // if yes info for badges
     },
-    {
-        type: 'confirm',
-        name: 'badges',
-        message: 'Would you like to add a badge?',
-        default: false
-    }
 ];
 
 
 
 
 // // TODO: Create a function to write README file
-// function writeToFile(fileName, data) {}
+// function writeToFile("fileName", data) {}
 
-// // TODO: Create a function to initialize app
-// function init() {}
-
-// // Function call to initialize app
-// init();
-
+//function to initialize app
 function init() {
     inquirer.prompt(questions)
     .then((inquirerResponse, data) => {
-        console.log("Making README");
-        fs.writeFileSync("README.MD, inquirerResponse, data");
+        console.log(inquirerResponse);
+        fs.writeFileSync("README.MD", generateMarkdown(inquirerResponse), 'utf-8');
+        
     })
     .catch((err) => {
         console.log(err);
     })
 }
-
+// Function call to initialize app
 init();
+
 //example of promises
 
 // function promptUser() {
