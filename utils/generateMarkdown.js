@@ -11,47 +11,53 @@ function renderLicenseLink(license) { }
 function renderLicenseSection(license) { }
 
 // TODO: Create a function to generate markdown for README
+// opensour website -- only options that are available on this site for choices
 function generateMarkdown(data) {
   return `
   
   # ${data.title}
 
-  # Table of Contents
-  -[description](#description)
-  -[Installation](#installation)
-  -[usage](#usage)
-  -[licenses](#licenses)
-  -[contribution](#contribution)
-  -[test](#test)
-  -[username](#username)
-  -[profile](#profile)
+  [![License](https://img.shields.io/badge/License-${data.license}-${data.color}.svg)](https://opensource.org/licenses/${data.license})
 
+  ## Table of Contents
+  [description](#description)
+
+  [Installation](#installation)
+
+  [usage](#usage)
+
+  [licenses](#licenses)
+
+  [contribution](#contribution)
+
+  [test](#test)
+
+  [username](#username)
+
+  [profile](#profile)
+
+  ## Username
   ${data.username}
-  ##username:
 
+  ## Description
   ${data.description}
-  ##description:
 
+  ## Installation
   ${data.installation}
-  ##installation:
 
+  ## Usage
   ${data.usage}
-  ##usage:
 
-  ${data.license}
-  ##license:
+  ## Built With
+  ${data.builtWith}
 
+  ## Contribution
   ${data.contribution}
-  ##contribution:
 
-  ${data.test}
-  ##test:
+ You can see more of my work here: ${data.profile}. 
 
-  ${data.email}
-  ##email:
-
-  ${data.profile}
-  ##profile:
+If you have any questions about this repo, please feel free to contact me here: ${data.email}
+ 
 
 `;
 }

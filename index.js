@@ -9,19 +9,49 @@ const generateMarkdown = require('./utils/generateMarkdown');
 const questions = [ 
     {
     type: 'input',
-    name: 'name',
+    name: 'title',
     message: 'What is the name of your project? (Required)'},
     {
-        type: 'confirm',
-        name: 'badges',
-        message: 'Would you like to add a badge?',
-        default: false
-        // if yes info for badges
-    },
+        type: 'input',
+        name: 'username',
+        message: 'What is your GitHub username? (Required)'},
+        {
+            type: 'input',
+            name: 'description',
+            message: 'Please describe this project!'},
+        
+    {
+        type: 'list',
+        name: 'license',
+        message: 'Which license would you like?',
+        // add more choices
+        choices: ['MIT','BSD_3--Clause', 'Apache_2.0']
+        
+    },    
+    {
+        type: 'list',
+        name: 'color',
+        message: 'Which color would you like for this badge?',
+        // add more choices
+        choices: ['brightgreen', 'blueviolet', 'orange', 'yellow', 'yellowgreen']
+
+    },  
+    //   {
+    //     type: 'list',
+    //     name: 'bananana',
+    //     message: 'Which license would you like?',
+    //     // add more choices
+    //     choices: ['MIT']
+
+    // },    {
+    //     type: 'list',
+    //     name: 'pizza',
+    //     message: 'Which license would you like?',
+    //     // add more choices
+    //     choices: ['MIT']
+
+    // },
 ];
-
-
-
 
 // // TODO: Create a function to write README file
 // function writeToFile("fileName", data) {}
@@ -31,8 +61,9 @@ function init() {
     inquirer.prompt(questions)
     .then((inquirerResponse, data) => {
         console.log(inquirerResponse);
-        fs.writeFileSync("README.MD", generateMarkdown(inquirerResponse), 'utf-8');
-        
+        fs.writeFile("README.MD", generateMarkdown(inquirerResponse), function(err){
+            if (err) console.log(err)
+        })
     })
     .catch((err) => {
         console.log(err);
