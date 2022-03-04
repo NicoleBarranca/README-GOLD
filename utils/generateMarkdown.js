@@ -18,6 +18,8 @@ function generateMarkdown(data) {
   # ${data.title}
 
   [![License](https://img.shields.io/badge/License-${data.license}-${data.color}.svg)](https://opensource.org/licenses/${data.license})
+  [![License](https://img.shields.io/badge/License-${data.licenseTwo}-${data.colorTwo}.svg)](https://opensource.org/licenses/${data.licenseTwo})
+  [![License](https://img.shields.io/badge/License-${data.licenseThree}-${data.colorThree}.svg)](https://opensource.org/licenses/${data.licenseThree})
 
   ## Table of Contents
   [description](#description)
@@ -42,17 +44,24 @@ function generateMarkdown(data) {
   ## Usage
   ${data.usage}
 
+  
   ## Built With
   ${data.builtWith}
+
+  ## License
+  ${data.license}
+
+  ## Tests
+${data.tests}
 
   ## Contribution
   ${data.contribution}
 
+  ## Questions
  You can see more of my work here: ${data.profile}. 
 
 If you have any questions about this repo, please feel free to contact me here: ${data.email}
  
-
 `;
 }
 

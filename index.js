@@ -1,41 +1,97 @@
-// TODO: Include packages needed for this application
+// Packages needed for this application
 const fs = require('fs');
 const inquirer = require('inquirer');
 const generateMarkdown = require('./utils/generateMarkdown');
 
 
 
-// TODO: Create an array of questions for user input
+// Array of questions for user input
 const questions = [
     //validate
     {
         type: 'input',
         name: 'title',
-        message: 'What is the name of your project? (Required)'
+        message: 'What is the name of your project? (Required)',
+        validate: titleInput => {
+            if (titleInput) {
+              return true;
+            } else {
+              console.log('You must enter your project name!');
+              return false;
+            }
+          }
     },
     {
         type: 'list',
         name: 'license',
         message: 'Which license would you like?',
-        // add more choices
-        choices: ['MIT', 'BSD_3--Clause', 'Apache_2.0']
+        choices: ['MIT', 'BSD_3--Clause', 'Apache_2.0'],
 
     },
     {
         type: 'list',
         name: 'color',
         message: 'Which color would you like for this badge?',
-        // add more choices
         choices: ['brightgreen', 'blueviolet', 'orange', 'yellow', 'yellowgreen']
 
     },
-    // would you like another badge (y/n) - if yes then chose both questions again, another? on repeat until no
 
-    //validate
+    {
+        type: 'confirm',
+        name: 'addBadge',
+        message: 'Would you like to add another badge?',
+        default: true
+        
+    },
+    {
+        type: 'list',
+        name: 'licenseTwo',
+        message: 'Which license would you like?',
+        choices: ['MIT', 'BSD_3--Clause', 'Apache_2.0'],
+        when: ({ addBadge }) => addBadge
+    },
+
+    {
+        type: 'list',
+        name: 'colorTwo',
+        message: 'Which color would you like for this badge?',
+        choices: ['brightgreen', 'blueviolet', 'orange', 'yellow', 'yellowgreen'],
+        when: ({ licenseTwo }) => licenseTwo
+    },
+    {
+        type: 'confirm',
+        name: 'addAnotherBadge',
+        message: 'Would you like to add another badge?',
+        default: true
+    },
+    {
+        type: 'list',
+        name: 'licenseThree',
+        message: 'Which license would you like?',
+        choices: ['MIT', 'BSD_3--Clause', 'Apache_2.0'],
+        when: ({ addAnotherBadge }) => addAnotherBadge
+    },
+
+    {
+        type: 'list',
+        name: 'colorThree',
+        message: 'Which color would you like for this badge?',
+        choices: ['brightgreen', 'blueviolet', 'orange', 'yellow', 'yellowgreen'],
+        when: ({ licenseThree }) => licenseThree
+    },
+
     {
         type: 'input',
         name: 'username',
-        message: 'What is your GitHub username? (Required)'
+        message: 'What is your GitHub username? (Required)',
+        validate: usernameInput => {
+            if (usernameInput) {
+              return true;
+            } else {
+              console.log('You must enter your GitHub username!');
+              return false;
+            }
+          }
     },
 
     {
@@ -54,10 +110,16 @@ const questions = [
         message: 'Please explain the usage of this application.'
     },
     {
-        type: 'list',
+        type: 'checkbox',
         name: 'builtWith',
         message: 'Please choose the tools used to build this application.',
         choices: ['JavaScript', 'Node.js', 'HTML', 'CSS', 'Other']
+    },
+
+    {
+        type: 'input',
+        name: 'tests',
+        message: 'What tests were used?'
     },
     {
         type: 'input',
@@ -77,22 +139,6 @@ const questions = [
         message: 'What is your email address?'
     },
 
-
-    //   {
-    //     type: 'list',
-    //     name: 'bananana',
-    //     message: 'Which license would you like?',
-    //     // add more choices
-    //     choices: ['MIT']
-
-    // },    {
-    //     type: 'list',
-    //     name: 'pizza',
-    //     message: 'Which license would you like?',
-    //     // add more choices
-    //     choices: ['MIT']
-
-    // },
 ];
 
 // // TODO: Create a function to write README file
@@ -111,7 +157,7 @@ function init() {
             console.log(err);
         })
 }
-// Function call to initialize app
+
 init();
 
 //example of promises
