@@ -99,6 +99,7 @@ function init() {
     inquirer.prompt(questions)
         .then((inquirerResponse, data) => {
             console.log(inquirerResponse);
+            // To generate README in output file
             const pathName = path.join(__dirname, "output", "README.MD");
             fs.writeFile(pathName, generateMarkdown(inquirerResponse), function (err) {
                 if (err) console.log(err)

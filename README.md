@@ -1,49 +1,72 @@
 
-  
-  # hi
+  <p align="center">
+  <a href="https://github.com/NicoleBarranca/run-buddy" rel="noopener">
+ <img width=200px height=200px src="./images/README.md.png" alt="Project logo"></a>
+</p>
 
-  [![License](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)
-  [![License](https://img.shields.io/badge/License-undefined-undefined.svg)](https://opensource.org/licenses/undefined)
-  [![License](https://img.shields.io/badge/License-undefined-undefined.svg)](https://opensource.org/licenses/undefined)
+<h1 align="center">README GOLD</h1>
+
+  [![License](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+ 
 
   ## Table of Contents
-  [description](#description)
+  [Description](#Description)
 
-  [Installation](#installation)
+  [Installation](#Installation)
 
-  [usage](#usage)
+  [Usage](#Usage)
 
-  [contribution](#contribution)
+  [Contribution](#Contribution)
 
+  [Website](#website)
 
-
-  ## Username
-  d
 
   ## Description
-  d
+  Having a Professional README is very important for your repo. With this application you can easily and efficiently input the information and a README will be generated for you. 
   
   ## Installation
-  d
+  1. Clone this repo to your local device.
+  2. Enter "npm init" in the CLI (to access the node.js package)
+  3. Answer "yes"
+  4. Enter "npm install inquirer.js"
 
   ## Usage
-  d
+  1. Open a new terminal
+  2. Enter "node index.js"
+  3. Answer the prompts to add information to your README
+  4. Take a look at the README file in the output directory
 
+  ### Adding Images
+
+  ```
+  -> Create folder titled "images"
+  -> Add images to folder
+  -> Add the below to your README:
+   <img width=ADDpx height=ADDpx src="ADD PATH" alt=""></a>
+
+  ```
   
   ## Built With
-  
+  - JavaScript
+  - Node.js
+  - Inquirer.js
 
-  ## License
-  MIT
 
-  ## Tests
-d
+## Website
 
-  ## Contribution
-  d
+Here is a [video of README GOLD's functionality.](https://github.com/NicoleBarranca).
 
-  ## Questions
- You can see more of my work here: d. 
+ <img width=378px height=209px src="./images/RMT.png" alt="Terminal with added data"></a>
 
-If you have any questions about this repo, please feel free to contact me here: d
- 
+   <img width=493px height=477px src="./images/RM.png" alt="Generated README"></a>
+
+
+## Contribution
+Made with ❤️ by Nicole Barranca
+
+
+## Questions
+
+Feel free to contact me directly at nikkibarranca@gmail.com if you have any questions about the repo. 
+
+You can find more of my work at [Nicole Barranca](https://github.com/NicoleBarranca).
