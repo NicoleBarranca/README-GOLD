@@ -2,30 +2,29 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
 const generateMarkdown = require('./utils/generateMarkdown');
-
-
+const path = require('path');
 
 // Array of questions for user input
 const questions = [
-    //validate
+
     {
         type: 'input',
         name: 'title',
         message: 'What is the name of your project? (Required)',
         validate: titleInput => {
             if (titleInput) {
-              return true;
+                return true;
             } else {
-              console.log('You must enter your project name!');
-              return false;
+                console.log('You must enter your project name!');
+                return false;
             }
-          }
+        }
     },
     {
         type: 'list',
         name: 'license',
         message: 'Which license would you like?',
-        choices: ['MIT', 'BSD_3--Clause', 'Apache_2.0'],
+        choices: ['MIT', 'EPL_1.0', 'IPL_1.0', 'ISC', 'MPL_2.0', 'OFL_1.1'],
 
     },
     {
@@ -35,65 +34,19 @@ const questions = [
         choices: ['brightgreen', 'blueviolet', 'orange', 'yellow', 'yellowgreen']
 
     },
-
-    {
-        type: 'confirm',
-        name: 'addBadge',
-        message: 'Would you like to add another badge?',
-        default: true
-        
-    },
-    {
-        type: 'list',
-        name: 'licenseTwo',
-        message: 'Which license would you like?',
-        choices: ['MIT', 'BSD_3--Clause', 'Apache_2.0'],
-        when: ({ addBadge }) => addBadge
-    },
-
-    {
-        type: 'list',
-        name: 'colorTwo',
-        message: 'Which color would you like for this badge?',
-        choices: ['brightgreen', 'blueviolet', 'orange', 'yellow', 'yellowgreen'],
-        when: ({ licenseTwo }) => licenseTwo
-    },
-    {
-        type: 'confirm',
-        name: 'addAnotherBadge',
-        message: 'Would you like to add another badge?',
-        default: true
-    },
-    {
-        type: 'list',
-        name: 'licenseThree',
-        message: 'Which license would you like?',
-        choices: ['MIT', 'BSD_3--Clause', 'Apache_2.0'],
-        when: ({ addAnotherBadge }) => addAnotherBadge
-    },
-
-    {
-        type: 'list',
-        name: 'colorThree',
-        message: 'Which color would you like for this badge?',
-        choices: ['brightgreen', 'blueviolet', 'orange', 'yellow', 'yellowgreen'],
-        when: ({ licenseThree }) => licenseThree
-    },
-
     {
         type: 'input',
         name: 'username',
         message: 'What is your GitHub username? (Required)',
         validate: usernameInput => {
             if (usernameInput) {
-              return true;
+                return true;
             } else {
-              console.log('You must enter your GitHub username!');
-              return false;
+                console.log('You must enter your GitHub username!');
+                return false;
             }
-          }
+        }
     },
-
     {
         type: 'input',
         name: 'description',
@@ -141,15 +94,14 @@ const questions = [
 
 ];
 
-// // TODO: Create a function to write README file
-// function writeToFile("fileName", data) {}
-
-//function to initialize app
+//Function to initialize app
 function init() {
     inquirer.prompt(questions)
         .then((inquirerResponse, data) => {
             console.log(inquirerResponse);
-            fs.writeFile("README.MD", generateMarkdown(inquirerResponse), function (err) {
+            // To generate README in output file
+            const pathName = path.join(__dirname, "output", "README.MD");
+            fs.writeFile(pathName, generateMarkdown(inquirerResponse), function (err) {
                 if (err) console.log(err)
             })
         })
@@ -159,29 +111,3 @@ function init() {
 }
 
 init();
-
-//example of promises
-
-// function promptUser() {
-//     return inquirer.prompt(questions[{
-//         name: "fistname",
-//         type: "input",
-//         message: "Enter first name",
-//         validate(input,) {
-//             if(input.matches(/\.js/)){
-//                 return "invalid anem";
-//             }
-//             return true;
-//         }
-//     }
-// ])
-// }
-
-// promptUser()
-// .then((response) => {
-//     console.log(response);
-// })
-// .catch((err) =>{
-//     console.log(err.message);
-//     process.exit();
-// });
