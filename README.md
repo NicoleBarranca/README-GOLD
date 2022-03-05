@@ -54,7 +54,7 @@
 
 ## Website
 
-Here is a [video of README GOLD's functionality.](https://github.com/NicoleBarranca).
+Here is a [video of README GOLD's functionality.](https://watch.screencastify.com/v/pfC2fSnMFnsfPhQJM44n).
 
  <img width=378px height=209px src="./images/RMT.png" alt="Terminal with added data"></a>
 
