@@ -7,15 +7,21 @@ function generateMarkdown(data) {
   [![License](https://img.shields.io/badge/License-${data.license}-${data.color}.svg)](https://opensource.org/licenses/${data.license})
  
   ## Table of Contents
-  [description](#description)
+  [Description](#description)
 
   [Installation](#installation)
-
-  [usage](#usage)
-
-  [contribution](#contribution)
-
-
+  
+  [Usage](#usage)
+  
+  [Built With](#built-with)
+  
+  [License](#license)
+  
+  [Tests](#tests)
+  
+  [Contribution](#contribution)
+  
+  [Questions](#questions)
 
   ## Username
   ${data.username}
