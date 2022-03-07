@@ -28,7 +28,7 @@
   1. Clone this repo to your local device.
   2. Enter "npm init" in the CLI (to access the node.js package)
   3. Answer "yes"
-  4. Enter "npm install inquirer.js"
+  4. Enter "npm install inquirer"
 
   ## Usage
   1. Open a new terminal
