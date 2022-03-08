@@ -1,6 +1,5 @@
 
   <p align="center">
-  <a href="https://github.com/NicoleBarranca/run-buddy" rel="noopener">
  <img width=200px height=200px src="./images/README.md.png" alt="Project logo"></a>
 </p>
 
